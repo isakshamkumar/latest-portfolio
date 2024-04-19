@@ -13,7 +13,7 @@ export default function Projects() {
   const { ref } = useSectionInView("Projects", 0.5);
   const [selectedTab, setSelectedTab] = useState("projects");
 
-  const handleToggle = (tab) => {
+  const handleToggle = (tab: string) => {
     setSelectedTab(tab);
   };
 
