@@ -7,6 +7,7 @@ import { useSectionInView } from "@/lib/hooks";
 import { sendEmail } from "@/actions/sendEmail";
 import SubmitBtn from "./submit-btn";
 import toast from "react-hot-toast";
+import { sendMail } from "@/lib/mailer";
 
 export default function Contact() {
   const { ref } = useSectionInView("Contact");
@@ -33,8 +34,8 @@ export default function Contact() {
 
       <p className="text-gray-700 -mt-6 dark:text-white/80">
         Please contact me directly at{" "}
-        <a className="underline" href="mailto:example@gmail.com">
-          example@gmail.com
+        <a className="underline" href="mailto:vanshikakumar1910@gmail.com">
+          vanshikakumar1910@gmail.com
         </a>{" "}
         or through this form.
       </p>
@@ -42,14 +43,23 @@ export default function Contact() {
       <form
         className="mt-10 flex flex-col dark:text-black"
         action={async (formData) => {
-          const { data, error } = await sendEmail(formData);
+          //@ts-ignore
+          const response= await fetch('/api/sendMail',{
+            method:'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(formData.get('senderEmail'))
+          });
 
-          if (error) {
-            toast.error(error);
-            return;
-          }
+const result= await response.json();
+         if(result.result){
 
-          toast.success("Email sent successfully!");
+           toast.success("Email sent successfully!");
+         }else{
+          toast.error("Error Sending Email");
+         }
+
         }}
       >
         <input

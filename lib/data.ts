@@ -3,7 +3,13 @@ import { CgWorkAlt } from "react-icons/cg";
 import { FaReact } from "react-icons/fa";
 import { LuGraduationCap } from "react-icons/lu";
 import corpcommentImg from "@/public/corpcomment.png";
+import article1 from "@/public/article1.png";
+import article2 from "@/public/article2.png";
+import article3 from "@/public/article3.png";
 import rmtdevImg from "@/public/rmtdev.png";
+import proj1 from "@/public/proj1.png";
+import proj2 from "@/public/proj2.jpeg";
+// import proj3 from "@/public/proj3.png";
 import wordanalyticsImg from "@/public/wordanalytics.png";
 
 export const links = [
@@ -35,73 +41,103 @@ export const links = [
 
 export const experiencesData = [
   {
-    title: "Graduated bootcamp",
-    location: "Miami, FL",
-    description:
-      "I graduated after 6 months of studying. I immediately found a job as a front-end developer.",
-    icon: React.createElement(LuGraduationCap),
-    date: "2019",
-  },
-  {
-    title: "Front-End Developer",
-    location: "Orlando, FL",
-    description:
-      "I worked as a front-end developer for 2 years in 1 job and 1 year in another job. I also upskilled to the full stack.",
+    title: "Technical Writer - Inkxpert",
+    location: "Remote",
+    description: {
+      title:
+        "I was a technical writer at Inkxpert, a leading digital marketing agency.",
+      content:[
+        "My responsibilities included writing and editing technical content for clients, ensuring accuracy and clarity, and maintaining a consistent voice and style across all content",]
+    },
+
     icon: React.createElement(CgWorkAlt),
-    date: "2019 - 2021",
+    date: "Sept 2022",
   },
   {
-    title: "Full-Stack Developer",
-    location: "Houston, TX",
-    description:
-      "I'm now a full-stack developer working as a freelancer. My stack includes React, Next.js, TypeScript, Tailwind, Prisma and MongoDB. I'm open to full-time opportunities.",
-    icon: React.createElement(FaReact),
-    date: "2021 - present",
+    title: "Contributor and Technical Writer - GeeksforGeeks",
+    location: "Remote",
+    description: {
+      title: "Published Articles:",
+      content: [
+        "https://www.geeksforgeeks.org/solving-the-multicollinearity-problem-with-decision-tree/",
+        "https://www.geeksforgeeks.org/important-npm-commands/.",
+        "https://www.geeksforgeeks.org/what-are-docker-runc-vulnerabilities/",
+      ],
+    },
+    icon: React.createElement(LuGraduationCap),
+    date: "2024 - present",
   },
-] as const;
+  {
+    title: "Technical Writer -ApplyHigh",
+    location: "Remote",
+    description: {
+      title: "I was a technical writer at ApplyHigh, a AI/ML Based Startup.",
+      content:[
+        "My responsibilities included writing and editing technical content for Website, ensuring clarity,User Retention and SEO, and maintaining a consistent voice and style across all content.",]
+    },
+    icon: React.createElement(FaReact),
+    date: "April 2024 - present",
+  },
+];
 
 export const projectsData = [
   {
-    title: "CorpComment",
+    title: "Safe Escape",
     description:
-      "I worked as a full-stack developer on this startup project for 2 years. Users can give public feedback to companies.",
-    tags: ["React", "Next.js", "MongoDB", "Tailwind", "Prisma"],
-    imageUrl: corpcommentImg,
+      "A Platform to empower and help Refugees. Facilitates Transactions from Government Authorities to Refugess Via BlockChain Using MetaMask.",
+    tags: ["React", "Solidity", "Express Js", "MongoDb"],
+    imageUrl: proj1,
+    link: "https://github.com/VanshikaKumar1910/Safe_Escape",
   },
   {
-    title: "rmtDev",
+    title: "Career Website",
     description:
-      "Job board for remote developer jobs. I was the front-end developer. It has features like filtering, sorting and pagination.",
-    tags: ["React", "TypeScript", "Next.js", "Tailwind", "Redux"],
-    imageUrl: rmtdevImg,
-  },
-  {
-    title: "Word Analytics",
-    description:
-      "A public web app for quick analytics on text. It shows word count, character count and social media post limits.",
-    tags: ["React", "Next.js", "SQL", "Tailwind", "Framer"],
+      "Job board for recruiters to post job listings and candidates to apply for jobs. It's build with Python And Django. It's also a full stack project with a responsive front-end. It includes features like Pagination.",
+    tags: ["Python", "Django", "SQLAlchemy", "Bootsrap", "Html", "CSS"],
     imageUrl: wordanalyticsImg,
+    link: "https://github.com/VanshikaKumar1910/career_website",
+  },
+  {
+    title: "URL Shortner",
+    description:
+      "This Flask project implements a URL shortener service. It allows users to input long URLs and generate shorter, more manageable URLs. Additionally, it provides functionality to track the number of visits to each shortened URL..",
+    tags: ["Python", "Flask", "HTML/CSS", "Jinja2"],
+    imageUrl: proj2,
+    link: "https://github.com/VanshikaKumar1910/url_shortener",
   },
 ] as const;
+export const ArticlesData = [
+  {
+    title: "Solving the Multicollinearity Problem with Decision Tree",
+    description:
+      "Multicollinearity is a common issue in data science, affecting various types of models, including decision trees. This article explores about multicollinearity.",
+    imageUrl: article1,
+    link: "https://www.geeksforgeeks.org/solving-the-multicollinearity-problem-with-decision-tree",
+  },
+  {
+    title: "Important npm Commands",
+    description:
+      "Node Package Manager (npm) stands at the core of JavaScript development, serving as a robust package manager for handling dependencies, project initialization, and script execution. Understanding the essential npm commands.",
+    imageUrl: article2,
+    link: "https://www.geeksforgeeks.org/important-npm-commands",
+  },
+  {
+    title: "What Are Docker Runc Vulnerabilities?",
+    description:
+      "Docker, a leading containerization platform, employs container runtimes like runc to execute containers. However, vulnerabilities in runC can expose systems to security threats. This article meticulously explores Docker runc vulnerabilities.",
+    imageUrl: article3,
+    link: "https://www.geeksforgeeks.org/what-are-docker-runc-vulnerabilities",
+  },
+];
 
 export const skillsData = [
-  "HTML",
-  "CSS",
-  "JavaScript",
-  "TypeScript",
-  "React",
-  "Next.js",
-  "Node.js",
-  "Git",
-  "Tailwind",
-  "Prisma",
-  "MongoDB",
-  "Redux",
-  "GraphQL",
-  "Apollo",
-  "Express",
-  "PostgreSQL",
   "Python",
+  "Flask",
   "Django",
-  "Framer Motion",
+  "R",
+  "Solidity",
+  "C++",
+  "Java",
+  "Html",
+  "CSS",
 ] as const;
