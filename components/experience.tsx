@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import SectionHeading from "./section-heading";
 import {
   VerticalTimeline,
@@ -15,11 +15,19 @@ export default function Experience() {
   const { ref } = useSectionInView("Experience");
   const { theme } = useTheme();
   const [scrollPosition, setScrollPosition] = useState(0);
+  const expRef=useRef(null)
 const[mount,setmount]=useState(false)
   useEffect(() => {
     const handleScroll = () => {
-      const position = window.scrollY - 3010;
-      setScrollPosition(position);
+      //@ts-ignore
+      const pos= expRef.current.getBoundingClientRect().top -400;
+      console.log(pos,'pos');
+      
+      if (pos <= 0) {
+        let positivePos = Math.abs(pos);
+        const newHeight = positivePos / .9; 
+        setScrollPosition(newHeight);
+      }
     };
     setmount(true)
 
@@ -36,12 +44,12 @@ if(mount){
       className="scroll-mt-28 mb-28 sm:mb-40 relative overflow-hidden"
     >
       <SectionHeading>My experience</SectionHeading>
-      <div style={{ position: "relative" }}>
+      <div ref={expRef} style={{ position: "relative" }}>
         {/* Vertical line */}
  
         <VerticalTimeline className="relative" lineColor="">
         <div
-          className="absolute top-0 left-[20px] md:left-[20px] xl:left-1/2 dark:bg-white  bg-black"
+            className={`absolute top-0 left-[20px] md:left-[20px] xl:left-1/2 dark:bg-white bg-black`}
           style={{
             width:'2px',
             transform: `translateX(-50%)`,
