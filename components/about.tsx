@@ -5,8 +5,9 @@ import { motion } from "framer-motion";
 import { useSectionInView } from "@/lib/hooks";
 
 export default function About() {
-  const refAbout = useRef();
-  const refAchievements = useRef();
+  const refAbout = useRef(null);
+const refAchievements = useRef(null);
+
   
   const [borderAbout, setBorderAbout] = useState(false);
   const [borderAchievements, setBorderAchievements] = useState(false);
@@ -15,8 +16,9 @@ export default function About() {
   useEffect(() => {
     const checkScroll = () => {
       if (!refAbout.current || !refAchievements.current) return;
-
+//@ts-ignore
       const rectAbout = refAbout.current.getBoundingClientRect();
+      //@ts-ignore
       const rectAchievements = refAchievements.current.getBoundingClientRect();
 
       if (rectAbout.top <= (window.innerHeight / 2 - 100)) {
@@ -35,7 +37,6 @@ export default function About() {
     window.addEventListener("scroll", checkScroll);
     return () => window.removeEventListener("scroll", checkScroll);
   }, []);
-
   return (
     <motion.section
     ref={ref}
@@ -45,7 +46,8 @@ export default function About() {
       transition={{ delay: 0.175 }}
       id="about"
     >
-      <div ref={refAbout} style={{transition:'all 0.2s ease-in-out'}} className={` md:w-full m-auto w-5/6 lg:w-full ${borderAbout ? "scale-110 mb-16 " : ""}`}>
+
+      <div ref={refAbout  } style={{transition:'all 0.2s ease-in-out'}} className={` md:w-full m-auto w-5/6 lg:w-full ${borderAbout ? "scale-110 mb-16 " : ""}`}>
         <SectionHeading>About Me</SectionHeading>
         <p  className="mb-3">
           I am a dedicated professional with a strong passion for technology and a penchant for problem-solving. With a background in Computer Science & AI, pursuing a B. Tech degree, I have consistently demonstrated excellence in academic achievements, maintaining a current CGPA of 8.415. I have honed my skills through practical experience, contributing to projects that require creative solutions to complex problems.
